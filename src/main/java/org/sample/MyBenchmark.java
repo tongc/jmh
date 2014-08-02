@@ -27,11 +27,25 @@ package org.sample;
 
 import org.openjdk.jmh.annotations.Benchmark;
 
+import java.util.Random;
+
 public class MyBenchmark {
 
     @Benchmark
     public void testMethod() {
-        // place your benchmarked code here
+        int a = new Random().nextInt();
+        a = a > 5?new Random().nextInt():10;
     }
 
+    @Benchmark
+    public void testMethod2() {
+        Integer a = new Random().nextInt();
+        a = a > 5?new Random().nextInt():10;
+    }
+
+    @Benchmark
+    public void testMethod3() {
+        Integer a = new Random().nextInt();
+        a = a.compareTo(5)>0?new Random().nextInt():10;
+    }
 }
